@@ -11,16 +11,27 @@ class Game:
 
     
     def start(self):
+        
         '''
-        -Calls the welcome method, 
-        -Creates the game loop, 
-        -Calls the get_guess method, 
-        -Adds the user's guess to guesses, 
-        -Increments the number of missed by one if the guess is incorrect, 
+        -Calls the welcome method,
+        -Creates the game loop,
+        -Calls the get_guess method,
+        -Adds the user's guess to guesses,
+        -Increments the number of missed by one if the guess is incorrect,
         -Calls the game_over method.
 
         '''
-        pass
+        # Calls the welcome method
+        self.welcome()
+        #game loop
+
+
+        #calls the get_guess method
+        self.get_guess()
+
+        #calls the game_over method
+        self.game_over()
+
 
 
     def get_random_phrase(self):
@@ -32,20 +43,34 @@ class Game:
         pass
 
     def welcome(self):
-        pass
+        '''
+        prints a friendly welcome message to the user
+        at the start of the game
+        '''
+        welcome_message='''
+        Welcome to the phrase hunter game.
+
+        You will be presented with a hidden  phrase and your job
+        is to guess it , entering letter by letter
+
+        '''.center(127)
+        print(welcome_message)
+        return None
 
 
     def get_guess(self):
         '''
-        prints a friendly welcome message to the user 
-        at the start of the game
+      
         '''
+        
         pass
 
-    def game_over():
+    def game_over(self):
         '''
         -displays a friendly win or loss message
-        -ends the game'''
+        -ends the game
+        '''
+        print('game_over')
         
         pass
     
