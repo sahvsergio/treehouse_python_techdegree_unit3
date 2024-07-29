@@ -1,5 +1,7 @@
 # Create your Game class logic in here.
 #create game class
+import copy
+import random
 class Game:
     # The class should include an initializer or def __init__ method t
     def __init__(self):
@@ -12,7 +14,7 @@ class Game:
             'Whatever the mind of man can conceive and believe, it can achieve.'
             'Don\'t find fault, find a remedy: anyone can complain.']
         self.active_phrase=None
-        self.guesses=[]
+        self.guesses=set()
 
     
     def start(self):
@@ -26,28 +28,15 @@ class Game:
         -Calls the game_over method.
 
         '''
+
         # Calls the welcome method
+        
+        
         self.welcome()
         #game loop
-        while self.missed>5:
-            #calls the get_guess method
-            self.get_guess()
-
-        else:
-            #calls the game_over method
-        self.game_over()
-
-
-
-    def get_random_phrase(self):
-        
-        
-        '''
-        randomly retrieves one of the phrases
-        stored in the phrases list 
-        and returns it.
-        '''
-        pass
+        while self.missed<5:
+            user_guess=self.get_guess()
+           
 
     def welcome(self):
         '''
@@ -66,19 +55,18 @@ class Game:
 
 
     def get_guess(self):
-        '''
-      
-        '''
-        
-        pass
 
-    def game_over(self):
-        '''
-        -displays a friendly win or loss message
-        -ends the game
-        '''
-        if 
-        print('game_over')
-        
-        pass
-    
+
+        try: 
+            user_guess=str(input('Please enter a letter').lower())
+            #check if the guess is actually a letter, not a number  
+            if user_guess.isalpha():
+                
+          
+            else:
+                raise Exception('Please enter a letter not a number')
+        except Exception as e:
+            print(e)
+
+
+   
