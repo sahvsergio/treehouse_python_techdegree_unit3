@@ -18,6 +18,7 @@ class Game:
 
     
     def start(self):
+       
         
         '''
         -Calls the welcome method,
@@ -32,16 +33,26 @@ class Game:
         
         self.active_phrase=self.get_random_phrase()
     
+        print(self.active_phrase)
         
-       
         
         # Calls the welcome method
         self.welcome()
+        hidden_phrase=''
         #game loop
-
-      
+        for  letter in self.active_phrase.lower():
+           if letter.isalpha():
+               
+               hidden_phrase+='_'
+           else:
+               hidden_phrase+=' '
+        print(hidden_phrase)
+        
         while self.missed<5:
             user_guess=self.get_guess()
+            
+       
+            
      
 
     def welcome(self):
