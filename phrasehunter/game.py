@@ -30,31 +30,37 @@ class Game:
 
         '''
 
-        
+
         self.active_phrase=self.get_random_phrase()
-    
+
         print(self.active_phrase)
-        
-        
+
+
         # Calls the welcome method
         self.welcome()
         hidden_phrase=''
         #game loop
         for  letter in self.active_phrase.lower():
-           if letter.isalpha():
-               
-               hidden_phrase+='_'
-           else:
-               hidden_phrase+=' '
+            if letter.isalpha():
+                hidden_phrase+='_'
+            elif letter.isspace():
+                hidden_phrase+=' '
         print(hidden_phrase)
-        
-        while self.missed<5:
-            user_guess=self.get_guess()
-            
-       
-            
-     
 
+        while self.missed<5:
+            
+            user_guess=self.get_guess()
+            try:
+                if user_guess in self.active_phrase:
+                    print(hidden_phrase)
+                else:
+                    self.missed+=1
+                    self.guesses.append(user_guess)
+
+            except TypeError:
+                print('Please enter a letter, not a number')
+
+                
     def welcome(self):
         '''
         prints a friendly welcome message to the user
@@ -79,8 +85,8 @@ class Game:
             #check if the guess is actually a  letter, not a number  
             if user_guess.isalpha():
                 self.guesses.append(user_guess)
-                
-          
+            elif len(user_guess)>1:
+                raise Exception('Please enter only 1 letter')
             else:
                 raise Exception('Please enter a letter not a number')
         except Exception as e:
