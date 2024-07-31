@@ -2,6 +2,11 @@
 #create game class
 import copy
 import random
+
+
+from .phrase import Phrase
+
+
 class Game:
     # The class should include an initializer or def __init__ method t
     def __init__(self):
@@ -33,7 +38,10 @@ class Game:
 
         self.active_phrase=self.get_random_phrase()
 
-        print(self.active_phrase)
+        
+        phrase = Phrase(self.active_phrase)
+        
+
 
 
         # Calls the welcome method
@@ -46,19 +54,47 @@ class Game:
             elif letter.isspace():
                 hidden_phrase+=' '
         print(hidden_phrase)
+        
+
+        print()
+        print()
 
         while self.missed<5:
             
             user_guess=self.get_guess()
+            print(type(user_guess))
             try:
-                if user_guess in self.active_phrase:
-                    print(hidden_phrase)
+                checker=phrase.check_letter(user_guess)
+                
+                #if user_guess in self.active_phrase by using check_letter function:
+                if checker:
+                    print(checker)
+                    
+                    
+                    
+                    
+                elif len(user_guess)>1:
+                   raise Exception('No more than 1 letter, please')
+                   continue
                 else:
-                    self.missed+=1
-                    self.guesses.append(user_guess)
+                    print(hidden_phrase)
+                    
+                    self.missed += 1
+                    print(self.missed)
+                    
+                    
 
             except TypeError:
-                print('Please enter a letter, not a number')
+                continue
+            except Exception as e:             
+                print(f'{e}')
+                continue
+            
+                
+            print(self.guesses)
+        else:
+            self.game_over()
+        
 
                 
     def welcome(self):
@@ -88,11 +124,13 @@ class Game:
             elif len(user_guess)>1:
                 raise Exception('Please enter only 1 letter')
             else:
+
+
                 raise Exception('Please enter a letter not a number')
         except Exception as e:
             print(e)
         else:
-            print(self.guesses)
+            
             return str(user_guess)
 
             
@@ -104,6 +142,15 @@ class Game:
         copied_phrases=copy.deepcopy(self.phrases)
         self.active_phrase=random.choice(copied_phrases)
         return self.active_phrase
+
+    def game_over(self):
+        '''
+        displays a friendly win or loss 
+        message and ends the game.
+        '''
+
+
+        print('Game Over')
 
 
    
