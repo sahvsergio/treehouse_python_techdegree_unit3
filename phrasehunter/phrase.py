@@ -9,14 +9,26 @@ class Phrase:
         self.phrase: str = phrase.lower()
     
 
-    def display(self, checker) -> str:
+    def display(self, checker, hidden_phrase, user_guess) -> str:
         
         '''
         presents guessed letters and
         non-guessed_ letters
         as underscores ex: _ _ _ _'''
-        if checker==True:
-            print('hello')
+        #if the  user_guess is self.phrase
+        if checker:
+            pass
+               
+         
+           
+         
+               
+           
+            
+           
+             
+           
+           
             
         
     def check_letter(self, user_guess: str) -> bool:
