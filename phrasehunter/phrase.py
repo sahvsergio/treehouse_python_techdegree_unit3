@@ -6,7 +6,7 @@ class Phrase():
         self.phrase=phrase.lower()
        
 
-        
+
     def __str__(self) -> str:
         return f'{self.phrase}'
     
@@ -64,17 +64,9 @@ class Phrase():
                     adapted_phrase_list.append(letter)
 
                 else:
-                   
-                    
                     adapted_phrase_list.append(letter)
-                    
-                
             print(type(adapted_phrase_list))
         save_option = ''.join(adapted_phrase_list)
-        
-        
-        
-            
                 
             
         print(save_option)
