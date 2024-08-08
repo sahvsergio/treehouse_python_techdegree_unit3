@@ -30,6 +30,7 @@ class Game:
 
         #calling the welcome method,
         self.welcome()
+        correct_guesses=[]
 
         #selects a single active_phrase
         self.active_phrase = self.get_random_phrase()
@@ -58,10 +59,11 @@ class Game:
                     #append it to guesses 
                     self.guesses.append(user_guess)
                     #print(self.guesses)
+                    self.correct_guesses.append(user_guess)
                     
                 elif len(user_guess) > 1:
                     self.guesses.append(user_guess)
-                    print(f'These were  your guesses: {','.join(self.guesses)}, they were a total of {len(self.guesses)}')
+                    print(f"These were  your guesses: {','.join(self.guesses)}, they were a total of {len(self.guesses)}")
 
                     
                     raise Exception('No more than one unit please')
@@ -81,17 +83,18 @@ class Game:
             if checker:
                 print('Hello, you got it ')
                 
-                #self.active_phrase.display(checker, user_guess, hidden_phrase)
+                self.active_phrase.display(checker, user_guess, hidden_phrase)
                 
 
             else:
                 print('Hello, you missed it ')
 
                 self.missed += 1
+                
 
                 print(f'You have {5-self.missed} out of 5 lives' )
                 continue
-            print(f'These were  your guesses: {','.join(self.guesses)}, they were a total of {len(self.guesses)}')
+            print(f"These were  your guesses: {','.join(self.guesses)}, they were a total of {len(self.guesses)}")
 
         else:
             self.game_over()
