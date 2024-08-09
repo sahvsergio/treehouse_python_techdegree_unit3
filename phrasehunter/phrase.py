@@ -13,8 +13,7 @@ class Phrase():
     def __iter__(self):
         yield from self.phrase
 
-    #def __eq__(self, value: object) -> bool:
-    #    pass
+   
         
         
     def check_letter(self,user_guess)->bool:
@@ -38,7 +37,9 @@ class Phrase():
         presents guessed letters and
         non-guessed_ letters
         as underscores ex: _ _ _ _'''
+      
         indexes = []
+        
         
         save_options=[]
 
@@ -65,11 +66,15 @@ class Phrase():
 
                 else:
                     adapted_phrase_list.append(letter)
-            print(type(adapted_phrase_list))
-        save_option = ''.join(adapted_phrase_list)
-                
             
+        save_option = ''.join(adapted_phrase_list)
         print(save_option)
+        #print(list(save_option))
+        hidden_phrase=list(save_option)
+    
+                
+        
+        return hidden_phrase
       
             
                 

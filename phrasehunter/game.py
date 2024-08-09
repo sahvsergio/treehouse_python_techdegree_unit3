@@ -83,7 +83,7 @@ class Game:
             if checker:
                 print('Hello, you got it ')
                 
-                self.active_phrase.display(checker, user_guess, hidden_phrase)
+                hidden_phrase=self.active_phrase.display(checker, user_guess, hidden_phrase)
                 
 
             else:
