@@ -95,8 +95,16 @@ class Game:
                 print()
 
             else:
-                print(f'Your guess was incorrect, it was the letter, {user_guess} ')
-                self.missed += 1
+                try:
+                    if user_guess.isalpha():
+                        self.missed += 1
+                    else:
+                        raise AttributeError
+                except AttributeError:
+                    print('Your guess was incorrect, it was a number, not a letter ')
+                    self.missed += 1
+                    
+            
 
                 print(self.active_phrase.display(checker, user_guess, hidden_phrase))
                 print()
@@ -152,7 +160,7 @@ class Game:
 
                 raise Exception('Please enter a letter not a number')
         except Exception as e:
-            print(f'{e}')
+            print(f'{e} {user_guess}')
         else:
             return user_guess
 
