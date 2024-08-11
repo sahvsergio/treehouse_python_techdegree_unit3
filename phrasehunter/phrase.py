@@ -13,10 +13,6 @@ class Phrase():
     def __iter__(self):
         yield from self.phrase
 
-    #def __eq__(self,other) -> bool:
-    #    return self.phrase==other:
-         
-
     def check_letter(self, user_guess: str) -> bool:
         '''checks to see if the letter selected
         by the user matches a letter
@@ -45,7 +41,7 @@ class Phrase():
         # the letters are located
         indexes: List[int] = []
         # list to keep all of the letters in self.phrase
-        
+
         adapted_phrase_list: List[str] = []
         # if checker is meant
         if checker:
@@ -60,10 +56,10 @@ class Phrase():
             # loop through the hidden phrases with enumerate
 
             for index,  letter in enumerate(hidden_phrase):
-                #if current index is in the indexes list
+                # if current index is in the indexes list
                 if index in indexes:
                     # replace  the '_' with a letter in that index
-                    letter:str = hidden_phrase[index].replace(letter, user_guess)
+                    letter: str = hidden_phrase[index].replace(letter, user_guess)
                     # append the letter to the phrase list
 
                     adapted_phrase_list.append(letter)
@@ -77,8 +73,6 @@ class Phrase():
         print(save_option)
         # turn the string into a list to keep modifying the underscores for guessed letters
         hidden_phrase: List[str] = list(save_option)
-
-
         return hidden_phrase
 
     def check_complete(self, hidden_phrase):
