@@ -31,23 +31,20 @@ class Game:
         '''
 
         # calling the welcome method,
-        
+
         self.welcome()
 
         # selects a single active_phrase
         self.active_phrase = self.get_random_phrase()
 
-       
         # showing the initial dotted lines with phrase hidden
         hidden_phrase = ''
-       
-
         for letter in self.active_phrase:
             if letter.isalpha():
                 hidden_phrase += '_'
             elif letter.isspace():
                 hidden_phrase += ' '
-      
+
         print()
         print(hidden_phrase)
 
@@ -65,8 +62,6 @@ class Game:
                     print()
                     # append it to guesses
                     self.guesses.append(user_guess)
-
-                    
 
                 elif len(user_guess) > 1:
                     print()
@@ -95,42 +90,28 @@ class Game:
                 print()
 
                 hidden_phrase = self.active_phrase.display(checker, user_guess, hidden_phrase)
-                
-             
-                
-                
-                
-                
+
                 print()
                 print()
 
             else:
                 print(f'Your guess was incorrect, it was the letter, {user_guess} ')
-                
-
                 self.missed += 1
-                
+
                 print(self.active_phrase.display(checker, user_guess, hidden_phrase))
                 print()
                 print()
-                print(f"These were  your guesses: {
-                      ','.join(self.guesses)}, they were a total of {len(self.guesses)}")
+                print(f"These were  your guesses: {','.join(self.guesses)}, they were a total of {len(self.guesses)}")
                 print()
                 print()
-                
-                
 
                 print(f'You have {5-self.missed} out of 5 lives')
                 print()
                 print()
                 complete = self.active_phrase.check_complete(hidden_phrase)
-                
 
-                
-
-                
             print(f"These were  your guesses: {','.join(self.guesses)}, they were a total of {len(self.guesses)}")
-            complete=self.active_phrase.check_complete(hidden_phrase)
+            complete = self.active_phrase.check_complete(hidden_phrase)
             if complete:
                 self.game_over(complete)
             else:
@@ -138,20 +119,6 @@ class Game:
 
         else:
             self.game_over(complete)
-
-            
-
-           
-            
-       
-       
-            
-           
-           
-        
-           
-                
-                
 
     def get_random_phrase(self) -> str:
         copied_phrases = copy.deepcopy(self.phrases)
@@ -190,10 +157,9 @@ class Game:
             return user_guess
 
     def game_over(self, complete):
-        if complete==True:
+        if complete is True:
             print(f'You won the game . the hidden phrase was :{self.active_phrase}')
             sys.exit()
-        elif complete==False:
+        if complete is False:
             print(f'You have lost the game , you tried {len(self.guesses)}')
             sys.exit()
-            
