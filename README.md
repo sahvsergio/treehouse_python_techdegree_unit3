@@ -1,6 +1,12 @@
-
-#  Treehouse Python Techdegree Unit 3:
 # Phrase Hunters
+
+## Project description
+## Features
+## Installation
+## Usage
+## Technologies
+## Screenshots
+## Demo link
 
 
 
